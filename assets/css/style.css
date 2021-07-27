@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    color: #FCFAF0
+}
+
+header {
+    padding-top: 1rem;
+}
+
+body {
+    background-color: #607172;
+}
+
+.game-container {
+    /* width: 85%; */
+}
+
+@media only screen and (max-width: 992px) {
+    .word-container p {
+        margin-top: 5% !important;
+    }
+
+    .word {
+        margin-bottom: 5% !important;
+    }
+}
+
+.word-container p {
+    margin-top: 20%;
+}
+
+#selectedWord {
+    height: 67px;
+    padding-left: 0 !important;
+}
+
+.letter {
+    display: block;
+    float: left;
+    /* padding: 0 .55rem .25rem .55rem; */
+    border-bottom: 3px solid #A9C2B9;
+    font-size: 2.5rem;
+    min-width: 55px;
+    min-height: 67px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* position: relative; */
+}
+
+.win{
+    transform: translateY(-4px)
+}
+/* 
+.word {
+    display: block
+} */
+
+
+/* ====== HANGMAN ANIMATION ====== */
+.transition {
+    stroke-dasharray: 227;
+    stroke-dashoffset: 0;
+    /* animation-iteration-count: infinite; */
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    /* animation-direction: alternate; */
+    animation-timing-function: ease;
+}
+
+
+@keyframes rotate {
+    from {
+      stroke-dashoffset: 227;
+    }
+  }
+
+/* ====== KEYBOARD ====== */
+#keyboard {
+    width: 59%;
+    padding-top: 2rem;
+}
+
+.keyLetter {
+    min-width: 42px !important;
+    font-size: 28px;
+}
+
+/* after selection */
+.btn.disabled, .btn:disabled {
+    opacity: .25 !important;
+}
+
+
+.hidden {
+    display: none;
+}

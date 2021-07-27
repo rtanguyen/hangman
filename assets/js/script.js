@@ -59,9 +59,6 @@ const maxMistakes = 6;
 
 
 function startGame() {
-    console.log(lettersArr);
-    console.log(category);
-
 //category
     let catText = $(`
     <p>The category is ${category}</p>
@@ -107,20 +104,29 @@ function checkInput(event) {
     }
 }
 
+var myModal = document.getElementById('myModal')
 
 function checkWin() {
+    let message = 'You won!!'
     if (correctArr.length === lettersArr.length) {
         const winner = document.querySelectorAll('.letter')
         winner.forEach(w => {
             w.classList.add('win');
         })
+        gameOver(message);
     };
 }
 
 function checkLoss() {
+    let message = 'Better luck next time!'
     if(mistake === maxMistakes) {
-        alert('you lose :(')
+        gameOver(message);
     }
+}
+
+function gameOver(message) {
+    $('#myModalHeader').text(message);
+    $('#myModal').toggle();
 }
 
 startGame();
@@ -129,6 +135,17 @@ startGame();
 const keyArr = document.querySelectorAll('.keyLetter')
     keyArr.forEach(function(key) {
     key.addEventListener('click', checkInput)
-    })
+    });
 
+//modal event listeners
+$('#close-modal').click(function() {
+    $('#myModal').toggle();
+    window.location.reload();
+})
+
+$('#replay-btn').click(function() {
+    console.log('hi');
+    $('#myModal').toggle();
+    window.location.reload();
+})
 
